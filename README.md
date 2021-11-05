@@ -32,3 +32,21 @@
 8. To run tests
    ```
    pytest
+
+9. To run background jobs
+    - start server  
+      ```
+      python manage.py runserver
+      ```
+    - start redis server
+      ```
+      redis-server
+      ```
+    - start the celery worker 
+      ```
+      celery -A app worker -l info
+      ```
+    - start the celery beat 
+      ```
+      celery -A app beat -l info
+      ```

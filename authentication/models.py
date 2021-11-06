@@ -21,6 +21,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return self.email
 
+
 class Holiday(models.Model):
     name = models.CharField(max_length=255, null=True, blank=True)
     country_code = models.CharField(max_length=10, null=True, blank=True)

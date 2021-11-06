@@ -25,7 +25,8 @@ class AbstractAPI:
         year = today.year
         month = today.month
         day = today.day
-        url = f'https://holidays.abstractapi.com/v1/?api_key={self.API_HOLIDAY_KEY}&country={country_code}&year={year}&month={month}&day={day}'
+        url = f'https://holidays.abstractapi.com/v1/?api_key={self.API_HOLIDAY_KEY}' + \
+            f'&country={country_code}&year={year}&month={month}&day={day}'
         response = requests.get(url)
         if response.status_code == 200:
-            return response.json()['name']   
+            return response.json()['name']

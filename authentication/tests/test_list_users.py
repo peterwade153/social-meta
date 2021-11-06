@@ -5,6 +5,7 @@ from rest_framework.test import APITestCase
 
 User = get_user_model()
 
+
 class ListUsersTestCase(APITestCase):
 
     def setUp(self):
@@ -14,11 +15,11 @@ class ListUsersTestCase(APITestCase):
         )
         self.user.is_active = True
         self.user.save()
-    
+
     def test_list_users(self):
         data = {
-            'email':'qwerty@gmail.com',
-            'password':'1234509876'
+            'email': 'qwerty@gmail.com',
+            'password': '1234509876'
         }
         res = self.client.post('/auth/token/', data)
         token = res.data['access']

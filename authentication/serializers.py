@@ -33,7 +33,7 @@ class RegisterSerializer(serializers.Serializer):
     )
     password = serializers.CharField(
         write_only=True,
-        required=True, 
+        required=True,
         validators=[validate_password]
     )
     confirm_password = serializers.CharField(write_only=True, required=True)

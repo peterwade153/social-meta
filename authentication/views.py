@@ -22,7 +22,7 @@ class EmailTokenObtainPairViewSet(TokenObtainPairView):
 
 class UserRegistrationViewSet(ViewSet):
     serializer_class = RegisterSerializer
-    permission_classes = [AllowAny,]
+    permission_classes = [AllowAny, ]
 
     @swagger_auto_schema(request_body=RegisterSerializer)
     def create(self, request):
@@ -39,11 +39,12 @@ class UserRegistrationViewSet(ViewSet):
             status=status.HTTP_201_CREATED
         )
 
+
 class UsersListViewSet(ViewSet):
     serializer_class = UserSerializer
-    permission_classes = [IsAuthenticated,]
+    permission_classes = [IsAuthenticated, ]
 
-    @swagger_auto_schema(responses = {200: UserSerializer(many=True)})
+    @swagger_auto_schema(responses={200: UserSerializer(many=True)})
     def list(self, request):
         queryset = User.objects.all()
         serializer = self.serializer_class(queryset, many=True)
@@ -53,4 +54,3 @@ class UsersListViewSet(ViewSet):
             },
             status=status.HTTP_200_OK
         )
-

@@ -41,7 +41,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics --exclude=*/settings/*,*/migrations/*
     - name: Test with Pytest
       run: |
-        pytest
+        python manage.py test
       env:
         DB_HOST: localhost
         DB_PORT: ${{ job.services.postgres.ports['5432'] }}

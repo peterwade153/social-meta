@@ -2,6 +2,7 @@
 # social-meta
 
 ### Installation
+This Requires Postgres, Redis, Python Installed
 1. Create and activate a virtual environment and Clone the project `https://github.com/peterwade153/social-meta.git`
 
 2. Move into the project folder
@@ -18,7 +19,7 @@
 
 5. Create a `.env` file from the `.env.sample` file. 
 
-6. Replace the variables in the sample file with the actual variables, such the database credentials and secret key. 
+6. Replace the variables in the sample file with the actual variables, such the database credentials, secret key etc. 
 
 7. Run migrations
    ```

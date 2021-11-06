@@ -60,8 +60,8 @@ jobs:
         DB_NAME: postgres
         DB_PASSWORD: postgres
         ENV_VAR_FILE: local_env
-        CELERY_BROKER_URL: redis
-        CELERY_RESULT_BACKEND: redis
+        CELERY_BROKER_URL: redis://localhost:6379
+        CELERY_RESULT_BACKEND: redis://localhost:6379
         ABSTRACT_EMAIL_API_KEY: 'asjjddskjefifj'
         ABSTRACT_IP_API_KEY: 'random keys'
         ABSTRACT_HOLIDAY_API_KEY: '3ramdome keys'

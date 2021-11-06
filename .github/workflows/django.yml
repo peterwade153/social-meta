@@ -48,3 +48,4 @@ jobs:
         DB_USER: postgres
         DB_NAME: postgres
         DB_PASSWORD: postgres
+        ENV_VAR_FILE: local_env

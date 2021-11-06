@@ -4,6 +4,7 @@ Utility function to read environments  which specify environment either local or
 
 import os
 
+
 def read_env_file(file_name):
     try:
         with open(os.path.join('environments/', file_name), 'r') as f:

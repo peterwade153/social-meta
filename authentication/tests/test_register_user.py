@@ -34,4 +34,3 @@ class RegisterUserTestCase(APITestCase):
         }
         response = self.client.post('/auth/register/', data=data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
-

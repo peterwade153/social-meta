@@ -8,7 +8,8 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 
 from authentication.serializers import (
     MetaTokenObtainPairSerializer,
-    RegisterSerializer
+    RegisterSerializer,
+    UserSerializer
 )
 from authentication.tasks import validate_user_email, update_user_geo_data
 
@@ -37,3 +38,19 @@ class UserRegistrationViewSet(ViewSet):
             },
             status=status.HTTP_201_CREATED
         )
+
+class UsersListViewSet(ViewSet):
+    serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated,]
+
+    @swagger_auto_schema(responses = {200: UserSerializer(many=True)})
+    def list(self, request):
+        queryset = User.objects.all()
+        serializer = self.serializer_class(queryset, many=True)
+        return Response({
+            "data": serializer.data,
+            "message": "success"
+            },
+            status=status.HTTP_200_OK
+        )
+

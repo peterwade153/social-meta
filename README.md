@@ -1,8 +1,14 @@
 [![Django CI](https://github.com/peterwade153/social-meta/actions/workflows/django.yml/badge.svg)](https://github.com/peterwade153/social-meta/actions/workflows/django.yml)
 # social-meta
 
+Requires Postgres, Redis Installed, and built with Python 3.8 
+
+An account with Abstract API https://www.abstractapi.com/ . 
+
+Use the free API Keys for Email Verification, IP And Holiday APIs
+
 ### Installation
-This Requires Postgres, Redis, Python Installed
+
 1. Create and activate a virtual environment and Clone the project `https://github.com/peterwade153/social-meta.git`
 
 2. Move into the project folder
@@ -26,20 +32,16 @@ This Requires Postgres, Redis, Python Installed
    python manage.py migrate
    ```
 
-8. To start server
+
+## To Test
+
+1. Start server
    ```
    python manage.py runserver
    ```
 
-8. To run tests
-   ```
-   pytest
 
-9. To run background jobs
-    - start server  
-      ```
-      python manage.py runserver
-      ```
+2. To run background task to verify emails, ip geolocation
     - start redis server
       ```
       redis-server
@@ -48,3 +50,11 @@ This Requires Postgres, Redis, Python Installed
       ```
       celery -A app worker -l info
       ```
+
+3. The application can be accessed via swagger docs here http://127.0.0.1:8000/
+
+4. To run tests
+   ```
+   pytest
+   ```
+5. API Swagger docs usages, follow instructions in Docs.txt file

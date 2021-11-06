@@ -1,0 +1,6 @@
+Create an account with email and password on the register url
+Login with email and password on the token url and get the access token
+At the top tap the Authorise button and add the access tokne from login like
+`Bearer access-token` and click Authorise
+Posts endpoints can used to create, edit, fetch and delete
+Like endpoints can used to like and unlike Posts by passing post ID

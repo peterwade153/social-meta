@@ -49,6 +49,7 @@ INSTALLED_APPS = [
 
     # Project apps
     'authentication',
+    'api',
 ]
 
 MIDDLEWARE = [

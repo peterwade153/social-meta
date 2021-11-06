@@ -1,3 +1,4 @@
+[![Django CI](https://github.com/peterwade153/social-meta/actions/workflows/django.yml/badge.svg)](https://github.com/peterwade153/social-meta/actions/workflows/django.yml)
 # social-meta
 
 ### Installation
@@ -45,8 +46,4 @@
     - start the celery worker 
       ```
       celery -A app worker -l info
-      ```
-    - start the celery beat 
-      ```
-      celery -A app beat -l info
       ```

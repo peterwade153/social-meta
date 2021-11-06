@@ -52,7 +52,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics --exclude=*/settings/*,*/migrations/*
     - name: Run Tests
       run: |
-        pytest
+        python manage.py test
       env:
         DB_HOST: localhost
         DB_PORT: ${{ job.services.postgres.ports['5432'] }}
@@ -62,3 +62,6 @@ jobs:
         ENV_VAR_FILE: local_env
         CELERY_BROKER_URL: redis
         CELERY_RESULT_BACKEND: redis
+        ABSTRACT_EMAIL_API_KEY: 'asjjddskjefifj'
+        ABSTRACT_IP_API_KEY: 'random keys'
+        ABSTRACT_HOLIDAY_API_KEY: '3ramdome keys'

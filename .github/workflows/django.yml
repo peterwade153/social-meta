@@ -22,6 +22,17 @@ jobs:
         # needed because the postgres container does not provide a healthcheck
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
+      redis:
+        image: redis
+        ports:
+        - 6379:6379
+        options: >-
+          --entrypoint redis-server
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python 3.8
@@ -31,7 +42,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install flake8
+        pip install flake8 pytest-django
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Lint with flake8
       run: |
@@ -41,7 +52,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics --exclude=*/settings/*,*/migrations/*
     - name: Run Tests
       run: |
-        python manage.py test
+        pytest
       env:
         DB_HOST: localhost
         DB_PORT: ${{ job.services.postgres.ports['5432'] }}
@@ -49,3 +60,5 @@ jobs:
         DB_NAME: postgres
         DB_PASSWORD: postgres
         ENV_VAR_FILE: local_env
+        CELERY_BROKER_URL: redis
+        CELERY_RESULT_BACKEND: redis

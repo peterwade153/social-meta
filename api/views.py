@@ -1,5 +1,4 @@
 from django.contrib.auth import get_user_model
-from django.db.models.query import QuerySet
 from django.http.response import Http404
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import status
@@ -14,7 +13,7 @@ User = get_user_model()
 
 
 class PostViewSet(ModelViewSet):
-    permission_classes = [IsAuthenticated,]
+    permission_classes = [IsAuthenticated, ]
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 

@@ -52,4 +52,4 @@ class PostTestCase(BaseAPITestCase):
         token = res.data['access']
         self.client.credentials(HTTP_AUTHORIZATION=f'Bearer {token}')
         response = self.client.delete(f'/api/posts/{post.id}/', format='json')
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
